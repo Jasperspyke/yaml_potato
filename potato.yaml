@@ -1,0 +1,32 @@
+# Cloud Information
+# =================================================================
+cloud:
+  # Cloud Name: The cloud name must not contain spaces or special
+  # characters. The name is used for the OpenStack region name.
+  name: YOUR_CLOUD_NAME
+  # Cloud Description
+  description: HA Controller + N Compute Topology - x86 KVM
+  # Cloud Administrator (admin) User's Password
+  password: YOUR_CLOUD_PASSWORD
+  # Cloud Database Service Type: db2
+  database_service_type: db2
+  # Cloud Messaging Service Type: rabbitmq
+  messaging_service_type: rabbitmq
+  # (Optional) Cloud SSL certificate chain file used only when the
+# fips_compliance cloud feature is enabled. This value is not required.
+# If not specified, the cacert_file will be created automatically,
+# and placed on the Chef server. Only specify this value if the
+# fips_compliance cloud feature is enabled, and you are providing your
+# own cloud SSL certificate chain file, and controller SSL certificate
+# and private key files for FIPS compliance.
+# cacert_file: YOUR_CLOUD_CACERT_FILE_LOCATION
+  # Cloud Features: The cloud features to be enabled or disabled.
+  features:
+    self_service_portal: enabled
+    platform_resource_scheduler: disabled
+    fips_compliance: disabled
+  # Cloud Topology: References the node name(s) for each role
+  # within the cloud's topology.
+  topology:
+    ha_controller_node_names: ha_controller
+    kvm_compute_node_names: kvm_compute

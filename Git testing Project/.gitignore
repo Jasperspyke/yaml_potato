@@ -1,0 +1,9 @@
+venv/*
+pyexe
+testers.py
+ganang
+cifar-10-batches-py
+cifar-10-python.tar.gz
+venv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.dylib
+
+#test

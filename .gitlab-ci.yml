@@ -20,7 +20,7 @@ matrix_1:
   stage: matrix_1
 
   script:
-    - python MatMult.py
+    - python GPU_Status.py
     - echo "done"
   artifacts:
     paths:

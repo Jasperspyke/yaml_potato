@@ -1,6 +1,6 @@
 image: python
 stages:
-  - matrix_1
+  - 'gpu_test'
   - matrix_2
 
 before_script:
@@ -8,16 +8,15 @@ before_script:
   - pip install virtualenv 
   - virtualenv venv
   - source venv/bin/activate
-  - pip install numpy
-  - pip install requests 
-  - pip install json
+  - pip install torch
+
 cache:
   paths:
     - venv/
     - .cache/pip
     
-matrix_1:
-  stage: matrix_1
+gpu_test:
+  stage: gpu_test
 
   script:
     - python GPU_Status.py
@@ -30,8 +29,9 @@ matrix_2:
   stage: matrix_2
 
   script:
-    - python GitMatMult.py
+
     - echo "done"
   artifacts:
     paths:
       - 'outfile_2.npy'
+      

@@ -1,0 +1,37 @@
+image: python
+stages:
+  - matrix_1
+  - matrix_2
+
+before_script:
+  - python -V              
+  - pip install virtualenv 
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install numpy
+  - pip install requests 
+  - pip install json
+cache:
+  paths:
+    - venv/
+    - .cache/pip
+    
+matrix_1:
+  stage: matrix_1
+
+  script:
+    - python MatMult.py
+    - echo "done"
+  artifacts:
+    paths:
+      - 'outfile.npy'
+      
+matrix_2:
+  stage: matrix_2
+
+  script:
+    - python GitMatMult.py
+    - echo "done"
+  artifacts:
+    paths:
+      - 'outfile_2.npy'

@@ -22,11 +22,6 @@ gpu_prep:
 
   script:
     - nvidia-smi
-    - docker login 
-    - docker build --no-cache -t jasperspyke/Fun-model .
-    - docker run --gpus all jasperspyke/Fun-model:latest /bin/bash ./test.sh # change this 
-    - docker push jasperspyke/Fun-model
-    - python GPU_Status.py
     - echo "done"
   artifacts:
     paths:

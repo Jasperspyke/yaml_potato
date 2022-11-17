@@ -2,9 +2,6 @@ image: nxdens/gpn-pytorch:latest
 stages:
   - 'gpu_prep'
   - matrix_2
-tags:
-  - linghai
-  - docker
 
 before_script:
   - python -V              
@@ -20,7 +17,10 @@ cache:
     
 gpu_prep:
   stage: gpu_prep
- 
+  tags:
+  - linghai
+  - docker
+
   script:
     - nvidia-smi
     - docker login 

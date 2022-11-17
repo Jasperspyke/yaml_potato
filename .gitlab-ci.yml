@@ -19,16 +19,11 @@ gpu_prep:
   stage: gpu_prep
 
   script:
-    -  apt-get install \
-    -  apt-transport-https \
-    - ca-certificates \
-    - curl \
-    - gnupg-agent \
-    -   software-properties-common 
-    - reboot 
-    - gcc --version
-    - lshw -C display
-
+    - nvidia-smi
+    - docker login 
+    - docker build --no-cache -t nxdens/gpn-pytorch .
+    - docker run --gpus all nxdens/gpn-pytorch:latest /bin/bash ./test.sh # change this 
+    - docker push nxdens/gpn-pytorch
     - python GPU_Status.py
     - echo "done"
   artifacts:

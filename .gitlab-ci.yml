@@ -22,6 +22,7 @@ gpu_prep:
 
   script:
     - nvidia-smi
+    - python GPU_Status.py
     - echo "done"
   artifacts:
     paths:

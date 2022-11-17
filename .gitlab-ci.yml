@@ -2,6 +2,9 @@ image: nxdens/gpn-pytorch:latest
 stages:
   - 'gpu_prep'
   - matrix_2
+tags:
+  - linghai
+  - docker
 
 before_script:
   - python -V              

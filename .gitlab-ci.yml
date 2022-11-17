@@ -19,7 +19,6 @@ gpu_prep:
   stage: gpu_prep
   tags:
   - linghai
-  - docker
 
   script:
     - nvidia-smi

@@ -17,13 +17,16 @@ cache:
     
 gpu_prep:
   stage: gpu_prep
+  tags:
+    - jasper
+    - docker
 
   script:
     - nvidia-smi
     - docker login 
-    - docker build --no-cache -t nxdens/gpn-pytorch .
-    - docker run --gpus all nxdens/gpn-pytorch:latest /bin/bash ./test.sh # change this 
-    - docker push nxdens/gpn-pytorch
+    - docker build --no-cache -t jasperspyke/Fun-model .
+    - docker run --gpus all jasperspyke/Fun-model:latest /bin/bash ./test.sh # change this 
+    - docker push jasperspyke/Fun-model
     - python GPU_Status.py
     - echo "done"
   artifacts:

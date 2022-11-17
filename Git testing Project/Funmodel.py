@@ -1,5 +1,4 @@
 
-
 if __name__ == '__main__':
 
     import os
@@ -208,7 +207,7 @@ if __name__ == '__main__':
         # Create a PyTorch Lightning trainer with the generation callback
         trainer = pl.Trainer(
             default_root_dir=os.path.join(CHECKPOINT_PATH, "cifar10_%i" % latent_dim),
-            gpus=0,
+            gpus=1,
             max_epochs=12,
             callbacks=[
                 ModelCheckpoint(save_weights_only=True),

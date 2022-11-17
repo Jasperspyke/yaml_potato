@@ -3,7 +3,7 @@ import torch
 print('setting device,')
 print('torch.cuda.is_available is')
 torch.cuda.is_available()
-device = torch.device("cuda:0" if torch.cuda.is_available())
+device = torch.device("cuda:0")
 print(device)
 
 

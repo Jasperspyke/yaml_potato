@@ -1,6 +1,6 @@
 image: python
 stages:
-  - 'gpu_test'
+  - 'gpu_prep'
   - matrix_2
 
 before_script:
@@ -15,10 +15,20 @@ cache:
     - venv/
     - .cache/pip
     
-gpu_test:
-  stage: gpu_test
+gpu_prep:
+  stage: gpu_prep
 
   script:
+    -  apt-get install \
+    -  apt-transport-https \
+    - ca-certificates \
+    - curl \
+    - gnupg-agent \
+    -   software-properties-common 
+    - reboot 
+    - gcc --version
+    - lshw -C display
+
     - python GPU_Status.py
     - echo "done"
   artifacts:

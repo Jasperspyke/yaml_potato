@@ -18,7 +18,7 @@ cache:
 gpu_prep:
   stage: gpu_prep
   tags:
-    - jasper
+    - linghai
     - docker
 
   script:

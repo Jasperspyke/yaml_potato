@@ -11,7 +11,7 @@ before_script:
   - pip install torch
   - pip install tensorboard 
   - conda install torchvision
-  - conda install pytorch_lightning
+  - pip install pytorch_lightning
 
 cache:
   paths:

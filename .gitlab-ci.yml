@@ -1,7 +1,7 @@
 image: nxdens/gpn-pytorch:latest
 stages:
   - 'gpu_prep'
-  - matrix_2
+  - machine_learning
 
 before_script:
   - python -V              
@@ -9,6 +9,9 @@ before_script:
   - virtualenv venv
   - source venv/bin/activate
   - pip install torch
+  - pip install tensorboard 
+  - conda install torchvision
+  - conda install pytorch_lightning
 
 cache:
   paths:
@@ -28,11 +31,11 @@ gpu_prep:
     paths:
       - 'outfile.npy'
       
-matrix_2:
-  stage: matrix_2
+machine_learning:
+  stage: machine_learning
 
   script:
-
+    - python Funmodel.py
     - echo "done"
   artifacts:
     paths:

@@ -35,7 +35,7 @@ machine_learning:
   stage: machine_learning
 
   script:
-    - python /Git testing Project/Funmodel.py
+    - python '/Git testing Project/Funmodel.py'
     - echo "done"
   artifacts:
     paths:

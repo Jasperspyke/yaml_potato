@@ -1,4 +1,4 @@
-image: python
+image: nxdens/gpn-pytorch:latest
 stages:
   - 'gpu_prep'
   - matrix_2
@@ -19,8 +19,6 @@ gpu_prep:
   stage: gpu_prep
  
   script:
-    - cp /usr/lib/wsl/lib/nvidia-smi /usr/bin/nvidia-smi chmod ogu+x /usr/bin/nvidia-smi
-    - sudo systemctl status nvidia-docker
     - nvidia-smi
     - docker login 
     - docker build --no-cache -t jasperspyke/Fun-model .
